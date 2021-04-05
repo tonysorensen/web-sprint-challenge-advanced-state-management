@@ -1,8 +1,19 @@
 
 export const initialState = {
+    smurfs: [],
+    isFetching: false,
+    error: ""
 }
 
-const reducer = ()=>{
+const reducer = (state= initialState, action)=>{
+    console.log("reducer",action)
+switch (action.type) {
+    
+
+    default:
+        return state;
+}
+
 }
 
 export default reducer;
