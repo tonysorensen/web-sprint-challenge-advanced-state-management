@@ -3,6 +3,7 @@ import {
   FETCH_SMURF_SUCCESS,
   FETCH_SMURF_FAIL,
   ADD_SMURF,
+  ADD_ERROR,
 } from "../actions";
 
 export const initialState = {
@@ -12,9 +13,10 @@ export const initialState = {
 };
 
 const reducer = (state = initialState, action) => {
-  console.log("reducer", action);
+  console.log("state", state);
   switch (action.type) {
     case FETCH_SMURF_START:
+      console.log("starting")
       return {
         ...state,
         isFetching: true,
@@ -45,6 +47,11 @@ const reducer = (state = initialState, action) => {
           description: action.payload.data.description,
         },
       };
+      case ADD_ERROR:
+        return {
+          ...state,
+          error: action.payload
+        }
     default:
       return state;
   }
