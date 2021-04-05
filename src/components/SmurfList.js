@@ -3,6 +3,7 @@ import Smurf from './Smurf';
 import { connect } from "react-redux";
 
  const SmurfList = (props)=> {
+     console.log('props from list',props)
     const isLoading = props.isFetching;
     // const testSmurf = {
     //     id:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9",
@@ -18,7 +19,7 @@ import { connect } from "react-redux";
 
     return(<div className="listContainer">
         {/* <Smurf smurf={testSmurf}/> */}
-        {props.smurfs.map((smurf)=>(<Smurf smurf={smurf}/>))}
+        {props.smurfs.map((smurf)=>(<Smurf key={smurf.id} smurf={smurf}/>))}
     </div>);
 }
 
