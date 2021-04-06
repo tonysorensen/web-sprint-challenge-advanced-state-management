@@ -26,7 +26,7 @@ const reducer = (state = initialState, action) => {
       console.log("action payload", action.payload);
       return {
         ...state,
-        smurfs: action.payload.data,
+        smurfs: action.payload,
         isFetching: false,
         error: "",
       };
@@ -39,13 +39,13 @@ const reducer = (state = initialState, action) => {
     case ADD_SMURF:
       return {
         ...state,
-        smurfs: {
-          id: action.payload.data.id,
-          name: action.payload.data.name,
-          nickname: action.payload.data.nickname,
-          position: action.payload.data.position,
-          description: action.payload.data.description,
-        },
+        smurfs: [...state.smurfs,{
+          id: Date.now(),
+          name: action.payload.name,
+          nickname: action.payload.nickname,
+          position: action.payload.position,
+          description: action.payload.description,
+        }],
       };
       case SET_ERROR:
         return {

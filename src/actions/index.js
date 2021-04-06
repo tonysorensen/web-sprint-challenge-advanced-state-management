@@ -12,7 +12,7 @@ export const fetchSmurfs = () => (dispatch) => {
       .get("http://localhost:3333/smurfs")
       .then((res) =>
       {  console.log('res', res)
-        dispatch({ type: FETCH_SMURF_SUCCESS, payload: {smurfs:res.data} })
+        dispatch({ type: FETCH_SMURF_SUCCESS, payload: res.data })
         console.log('hi')}
       )
 
@@ -26,12 +26,7 @@ export const fetchSmurfs = () => (dispatch) => {
 export const addSmurf = (smurf) => {
   return {
     type: ADD_SMURF,
-    payload: {
-      name: smurf.name,
-      nickname: smurf.nickname,
-      position: smurf.position,
-      description: smurf.description,
-    },
+    payload: smurf
   };
 };
 export const setError = (error) => {
